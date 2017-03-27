@@ -9,8 +9,13 @@ void setup() {
 }
 
 void loop() {
-  if (Serial.available() > 0){
+  if (Serial.available() >= 0){
     int reading = digitalRead(pushpin);
-    Serial.write(reading);
+    if (reading == HIGH){
+      Serial.write(reading);
+    }
+    else{
+    delay(300);
+    }
   }
-}
+};
